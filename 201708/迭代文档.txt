@@ -1,0 +1,76 @@
+case study
+7月成功率0.1070（3846 35929）总体高于前两月，可能和呼的总数略少有一定关系
+step 1：
+观察score高的数据，通话4G流量消费略低于平均，但上月和本月的3G明显高于平均（4倍和2倍）
+step 2：
+跪舔用户（往年曾经在外呼中心办过业务的用户）对成功率影响很大，1615/5785=0.2791702679343129。而且，观察前面高score的数据，基本上全都是跪舔用户，说明模型提取到了一些潜在的规律。
+以RF为模型，增加这个维度（取值0,1,2,3）0可以轻微提高性能：
+without：
+             precision    recall  f1-score   support
+          0       0.91      0.88      0.89      9594
+          1       0.23      0.29      0.26      1185
+avg / total       0.84      0.82      0.82     10779
+with：
+             precision    recall  f1-score   support
+          0       0.91      0.89      0.90      9594
+          1       0.25      0.31      0.28      1185
+avg / total       0.84      0.82      0.83     10779
+step 3：
+修改模型，人工增加跪舔特征的权重（取值0,1），a['pre_weight_{}'.format(k)]=k*a.pre+(1-k)*a['跪舔']
+pre权重从0到0.9变化，某行数据的score如下：
+pre               0.20
+跪舔                1.00
+y_test            0.00
+pre_weight_0.0    1.00
+pre_weight_0.1    0.92
+pre_weight_0.2    0.84
+pre_weight_0.3    0.76
+pre_weight_0.4    0.68
+pre_weight_0.5    0.60
+pre_weight_0.6    0.52
+pre_weight_0.7    0.44
+pre_weight_0.8    0.36
+pre_weight_0.9    0.28
+取pre权重0.7跪舔权重0.3，阈值选30，util.showReport(a['pre_weight_0.7'],a.y_test,30)，得到
+             precision    recall  f1-score   support
+          0       0.92      0.86      0.89      9594
+          1       0.27      0.44      0.34      1185
+avg / total       0.85      0.81      0.83     10779
+显然，如果pre权重取0（或接近0）就是将跪舔作为唯一维度的线性分类模型，无论阈值选多少，都只有0或1：
+             precision    recall  f1-score   support
+          0       0.92      0.87      0.90      9594
+          1       0.29      0.42      0.34      1185
+avg / total       0.85      0.82      0.84     10779
+可以看到，对RF加权后的回归模型选取阈值20等效的分类器性能还不如直接拿跪舔特征作为唯一依据的分类器。（只不过分类器还不够，要排序还是要回归模型）
+换强一点的模型GBDT，加权前后的对比也有一定的提升
+util.showReport(a['pre'],a.y_test,20)
+             precision    recall  f1-score   support
+          0       0.92      0.92      0.92      9594
+          1       0.35      0.34      0.34      1185
+avg / total       0.86      0.86      0.86     10779
+util.showReport(a['pre_weight_0.8'],a.y_test,30)
+             precision    recall  f1-score   support
+          0       0.92      0.90      0.91      9594
+          1       0.34      0.40      0.37      1185
+avg / total       0.86      0.85      0.85     10779
+util.showReport(a['pre_weight_0.9'],a.y_test,20)
+             precision    recall  f1-score   support
+          0       0.93      0.88      0.90      9594
+          1       0.31      0.45      0.37      1185
+avg / total       0.86      0.83      0.84     10779
+
+最终选用0.9为pre权重进行建模，跪舔取值仅为0和1
+step 4：
+发现一些由于追单错误导致的label标记错误，修改后跪舔分类器性能最好。。
+	precision    recall  f1-score   support
+          0       0.92      0.88      0.90      9377
+          1       0.37      0.45      0.41      1402
+avg / total       0.84      0.83      0.84     10779
+强于GBDT的模型。。
+	precision    recall  f1-score   support
+          0       0.90      0.90      0.90      9377
+          1       0.35      0.37      0.36      1402
+avg / total       0.83      0.83      0.83     10779
+分析原因：跪舔用户都是愿意主动打10000号，故这700多个label标记错误的数据可能很多都是跪舔用户。新数据跪舔用户的成功率0.35799481417458945
+
+

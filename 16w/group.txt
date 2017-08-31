@@ -1,0 +1,204 @@
+¶¡Î°¾ý 0.4965034965034965(71/143)
+             precision    recall  f1-score   support
+
+          0       0.58      0.52      0.55        27
+          1       0.32      0.38      0.34        16
+
+avg / total       0.48      0.47      0.47        43
+
+Confusion matrix, without normalization
+[[14 13]
+ [10  6]]
+0.37->0.32
+·ë†´ 0.4326241134751773(122/282)
+             precision    recall  f1-score   support
+
+          0       0.63      0.65      0.64        48
+          1       0.53      0.51      0.52        37
+
+avg / total       0.59      0.59      0.59        85
+
+Confusion matrix, without normalization
+[[31 17]
+ [18 19]]
+.43->.53
+ÖÜÅÎ 0.3201320132013201(97/303)
+             precision    recall  f1-score   support
+
+          0       0.81      0.41      0.55        70
+          1       0.25      0.67      0.37        21
+
+avg / total       0.68      0.47      0.51        91
+
+Confusion matrix, without normalization
+[[29 41]
+ [ 7 14]]
+.23->.25
+½ªÎÄË¼ 0.32038834951456313(66/206)
+             precision    recall  f1-score   support
+
+          0       0.52      0.45      0.48        38
+          1       0.28      0.33      0.30        24
+
+avg / total       0.42      0.40      0.41        62
+
+Confusion matrix, without normalization
+[[17 21]
+ [16  8]]
+.39->0.28
+ËïÆôÀÚ 0.36324786324786323(85/234)
+             precision    recall  f1-score   support
+
+          0       0.62      0.67      0.64        39
+          1       0.55      0.50      0.52        32
+
+avg / total       0.59      0.59      0.59        71
+
+Confusion matrix, without normalization
+[[26 13]
+ [16 16]]
+.45->0.55
+ÕÅÖ¾³¬ 0.31521739130434784(58/184)
+             precision    recall  f1-score   support
+
+          0       0.64      0.53      0.58        34
+          1       0.43      0.55      0.48        22
+
+avg / total       0.56      0.54      0.54        56
+
+Confusion matrix, without normalization
+[[18 16]
+ [10 12]]
+.39->0.43
+ÕÅ´ºÔ· 0.3263157894736842(93/285)
+             precision    recall  f1-score   support
+
+          0       0.70      0.60      0.65        55
+          1       0.44      0.55      0.49        31
+
+avg / total       0.61      0.58      0.59        86
+
+Confusion matrix, without normalization
+[[33 22]
+ [14 17]]
+.36->0.44
+ÕÅÇà 0.3067226890756303(73/238)
+             precision    recall  f1-score   support
+
+          0       0.63      0.49      0.55        49
+          1       0.26      0.39      0.32        23
+
+avg / total       0.51      0.46      0.48        72
+
+Confusion matrix, without normalization
+[[24 25]
+ [14  9]]
+.32->0.26
+ÅíÏþÕä 0.40789473684210525(62/152)
+             precision    recall  f1-score   support
+
+          0       0.56      0.60      0.58        25
+          1       0.47      0.43      0.45        21
+
+avg / total       0.52      0.52      0.52        46
+
+Confusion matrix, without normalization
+[[15 10]
+ [12  9]]
+.45->.47
+ÑîÃÎÇé 0.3092105263157895(94/304)
+             precision    recall  f1-score   support
+
+          0       0.70      0.71      0.71        56
+          1       0.54      0.53      0.54        36
+
+avg / total       0.64      0.64      0.64        92
+
+Confusion matrix, without normalization
+[[40 16]
+ [17 19]]
+.39->0.54
+ÑîÈï 0.3835125448028674(107/279)
+             precision    recall  f1-score   support
+
+          0       0.65      0.61      0.63        56
+          1       0.31      0.36      0.33        28
+
+avg / total       0.54      0.52      0.53        84
+
+Confusion matrix, without normalization
+[[34 22]
+ [18 10]]
+.33->0.31
+ºé½ø 0.30944625407166126(95/307)
+             precision    recall  f1-score   support
+
+          0       0.82      0.64      0.72        70
+          1       0.34      0.57      0.43        23
+
+avg / total       0.70      0.62      0.65        93
+
+Confusion matrix, without normalization
+[[45 25]
+ [10 13]]
+.25->0.34
+Íõ¿­ 0.33204633204633205(86/259)
+             precision    recall  f1-score   support
+
+          0       0.70      0.47      0.57        55
+          1       0.29      0.52      0.38        23
+
+avg / total       0.58      0.49      0.51        78
+
+Confusion matrix, without normalization
+[[26 29]
+ [11 12]]
+.29->.29
+ÍõÇçÇç 0.34265734265734266(49/143)
+             precision    recall  f1-score   support
+
+          0       0.60      0.58      0.59        26
+          1       0.39      0.41      0.40        17
+
+avg / total       0.52      0.51      0.51        43
+
+Confusion matrix, without normalization
+[[15 11]
+ [10  7]]
+.39->.39
+ÍõÀò 0.46411483253588515(97/209)
+             precision    recall  f1-score   support
+
+          0       0.55      0.56      0.55        32
+          1       0.53      0.52      0.52        31
+
+avg / total       0.54      0.54      0.54        63
+
+Confusion matrix, without normalization
+[[18 14]
+ [15 16]]
+.49->.53
+ÄªÃÎÔó 0.3305785123966942(40/121)
+             precision    recall  f1-score   support
+
+          0       0.50      0.59      0.54        22
+          1       0.18      0.13      0.15        15
+
+avg / total       0.37      0.41      0.38        37
+
+Confusion matrix, without normalization
+[[13  9]
+ [13  2]]
+.40->0.18
+ñûÑÞ»ª 0.3105590062111801(50/161)
+             precision    recall  f1-score   support
+
+          0       0.72      0.36      0.48        36
+          1       0.26      0.62      0.36        13
+
+avg / total       0.60      0.43      0.45        49
+
+Confusion matrix, without normalization
+[[13 23]
+ [ 5  8]]
+.26->.26

@@ -1,0 +1,10 @@
+s=pd.read_excel('s.xlsx')
+s.shape
+s[6902:10352].to_csv('1-3.csv',index=False)
+s[3451:6902].to_csv('1-4.csv',index=False)
+s[:3451].to_csv('1-5.csv',index=False)
+s[10352:15577].to_csv('2-5.csv',index=False)
+s[15577:20802].to_csv('2-4.csv',index=False)
+s[20802:26027].to_csv('2-3.csv',index=False)
+s[26027:36027].to_csv('3.csv',index=False)
+s[36027:].to_csv('4.csv',index=False)
