@@ -19,7 +19,7 @@ def preprocessing(data):
     print(data.shape)
     return data
 
-def extractFeatures(data):
+def extractFeatures(data,num_train):
     from sklearn.feature_extraction import DictVectorizer
     from sklearn import preprocessing
     vec = DictVectorizer(sparse = False)
@@ -30,8 +30,12 @@ def extractFeatures(data):
     #X_dictCon = dataFeatureCon.T.to_dict().values()
     X_dictCon = [dict(r.iteritems()) for _, r in dataFeatureCon.iterrows()]
     X_vec_con = vec.fit_transform(X_dictCon)
-    scaler = preprocessing.StandardScaler().fit(X_vec_con)
-    X_vec_con = scaler.transform(X_vec_con)
+    if num_train:
+        scaler = preprocessing.StandardScaler().fit(X_vec_con)
+        X_vec_con = scaler.transform(X_vec_con)
+    else:
+        scaler = preprocessing.StandardScaler().fit(X_vec_con[:num_train])
+        X_vec_con = scaler.transform(X_vec_con[num_train:])
     print(X_vec_con.shape)
     #处理离散特征，也可试试preprocessing.LabelEncoder()
     featureCatCols=['租机计划', '资费名称', '手机型号ID','4G卡用户标志', '标志_维挽拍照用户', '客户等级',

@@ -37,7 +37,7 @@ data9=pd.read_csv('201709-租机到期数据.csv',encoding='gbk')
 data9.loc[data9['跪舔']>=1,'跪舔']=1
 data=pd.concat((data8,data9), axis=0, join='inner',ignore_index=True)
 data=util.preprocessing(data)
-X=features=util.extractFeatures(data)
+X=features=util.extractFeatures(data,num_train=data8.shape[0])
 X_train=X[:data8.shape[0]]
 X_test=X[data8.shape[0]:]
 y_train=data8['label']
